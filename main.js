@@ -1,6 +1,9 @@
 const PUSH = "PUSH";
 const ADD = "ADD";
 const MINUS = "MINUS";
+const MUL = "MUL";
+const DIV = "DIV";
+const MOD = "MOD";
 
 function virtualMachine(program) {
     let counter = 0;
@@ -40,6 +43,39 @@ function virtualMachine(program) {
                 sPointer++;
 
                 break;
+
+            case MUL:
+                right = stack[sPointer - 1];
+                sPointer--;
+                left = stack[sPointer - 1];
+                sPointer--;
+
+                stack[sPointer] = left * right;
+                sPointer++;
+
+                break;
+
+            case DIV:
+                right = stack[sPointer - 1];
+                sPointer--;
+                left = stack[sPointer - 1];
+                sPointer--;
+
+                stack[sPointer] = left / right;
+                sPointer++;
+
+                break;
+
+            case MOD:
+                right = stack[sPointer - 1];
+                sPointer--;
+                left = stack[sPointer - 1];
+                sPointer--;
+
+                stack[sPointer] = left % right;
+                sPointer++;
+
+                break;
         }
 
         counter++;
@@ -50,10 +86,8 @@ function virtualMachine(program) {
 
 let program = [
     PUSH, 10,
-    PUSH, 10,
-    ADD,
-    PUSH, 5,
-    MINUS
+    PUSH, 2,
+    DIV,
 ];
 
 virtualMachine(program);
