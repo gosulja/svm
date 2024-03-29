@@ -45,7 +45,7 @@ function virtualMachine(program) {
         counter++;
     }
 
-    console.log(`Stacktop: ${stack[sPointer - 1]}`);
+    console.log(`result: ${stack[sPointer - 1]}`);
 }
 
 let program = [
