@@ -1,5 +1,6 @@
 # svm
 A very very very small VM built in JavaScript. Built for learning purposes.
+Added `MUL`, `DIV`, `MOD` instructions.
 
 # example
 Given this program:
